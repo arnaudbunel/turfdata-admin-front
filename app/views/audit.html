@@ -1,0 +1,48 @@
+<div class="row">
+<div class="col-xs-12">
+	<p class="text-center"><strong>Audit</strong></p>
+
+</div>
+</div>
+<div>
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Date r&#233;union</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">            
+              <input type="text" class="form-control input-sm" uib-datepicker-popup="{{format}}" ng-model="dateevt" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" current-text="Aujourd'hui" clear-text="Effacer" close-text="Fermer" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-sm" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+              </span>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" ng-click="rechercher(dateevt)"
+						class="btn btn-default btn-sm">Rechercher</button>
+				</div>
+			</div>
+</form>
+</div>
+<div class="row" ng-if="resultats">
+	<div class="col-xs-offset-1 col-xs-11">
+		<table class="table table-condensed">
+			<thead>
+			<tr>
+				<th>Date</th>
+				<th>Anos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="audit in resultats">
+				<td>{{audit.dateReunion | date:"dd/MM/yyyy"}}</td>
+				<td><p ng-repeat="ano in audit.listAnos">{{ano}}</p></td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="modal-header"><h4>Compl&#233;ment r&#233;sultats course</h4></div>
+<div class="modal-body">
+<div class="row">
+<div class="col-xs-10 col-xs-offset-1" align="center">
+<p>Course : {{course.prix}}, {{course.lieu}}</p>
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">R&#233;sultats</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">            
+              <input type="text" class="form-control input-sm" ng-model="resultatsbrut"/>
+            </p>
+		</div>
+	</div>
+</form>
+</div>
+<div class="col-xs-6" align="center">
+<button class="btn btn-block btn-green btn-lg" type="button" ng-click="ok()">Enregistrer</button>
+</div>
+<div class="col-xs-6" align="center">
+<button class="btn btn-block btn-lg" type="button" ng-click="cancel()">Annuler</button>
+</div>
+</div>
+</div>

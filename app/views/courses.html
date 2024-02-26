@@ -1,0 +1,63 @@
+<div class="row">
+<div class="col-xs-12">
+	<p class="text-center"><strong>Courses</strong><span></p>
+
+</div>
+</div>
+<div class="row" ng-show="courses.length==0">
+<p class="text-center">Aucune course</p>
+</div>
+<div>
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Date course</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">            
+              <input type="text" class="form-control input-sm" uib-datepicker-popup="{{format}}" ng-model="dateevt" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" current-text="Aujourd'hui" clear-text="Effacer" close-text="Fermer" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-sm" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+              </span>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" ng-click="rechercher(dateevt)"
+						class="btn btn-default btn-sm">Rechercher</button>
+				</div>
+			</div>
+</form>
+</div>
+<div class="row" ng-show="courses.length>0">
+	<table class="table table-condensed">
+		<thead>
+		<tr>
+			<th>Prix (No)</th>
+			<th>Heure</th>
+			<th>Distance</th>
+			<th>Anomalies</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="course in courses">
+	<td><p><a ng-click="completerResultats(course)">{{course.prix}}</a>&nbsp;({{course.nocombine}})&nbsp;<i>{{course.evt}}</i>&nbsp;-&nbsp;{{course.lieu}}</p></td>
+	<td><p>{{course.heure}}</p></td>
+	<td><p>{{course.distance}}</p>
+	<td>
+		<span ng-if="course.nbano==0" class="label label-success">0</span>
+		<span ng-if="course.nbano>0" class="label label-warning">{{course.descano}}</span>
+		<a ng-click="acqerreur(course)" ng-if="course.nbano>0 && !course.erreuracq"><i class="fa fa-check-circle-o" aria-hidden="true"></i></a>
+	</td>
+	<td>
+	<a ng-click="supprimeCourse(courses,$index,course)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+	&nbsp;
+	<a ng-click="lanceAnalyse(course.id)"><i class="fa fa-calculator" aria-hidden="true"></i></a>
+	</td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+

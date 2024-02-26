@@ -1,0 +1,31 @@
+<div>
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Date r&#233;union</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" uib-datepicker-popup="{{format}}" ng-model="tache.dateevt" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" current-text="Aujourd'hui" clear-text="Effacer" close-text="Fermer" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default btn-sm" ng-click="open($event)"><i class="fa fa-calendar"></i></button>
+              </span>
+            </p>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="evt" class="col-xs-2 col-xs-offset-1 control-label"></label>
+		<div class="col-xs-6 checkbox">
+			<label class="checkbox-inline"><input type="checkbox"
+				id="evt" ng-model="tache.evt"> Limit&#233; &#224; la course &#233;v&#232;nement ?</label>
+		</div>
+	</div>
+	<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" ng-click="enregistrer(tache)"
+						class="btn btn-info btn-sm">Enregistrer</button>
+				</div>
+			</div>
+</form>
+</div>

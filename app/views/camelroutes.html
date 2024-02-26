@@ -1,0 +1,12 @@
+<div class="row">
+<div class="col-xs-12">
+	<h2 align="center">Routes Camel</h2>
+	</div>
+ </div>
+ <div class="row">
+ <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-repeat="camelroute in camelroutes">
+         	<p><button ng-if="!camelroute.demarre" ng-click="startRoute(camelroute)" type="button" class="btn btn-success">Start</button>
+			<button ng-if="camelroute.demarre" ng-click="stopRoute(camelroute)" type="button" class="btn btn-danger">Stop&nbsp;</button>
+             &nbsp;{{camelroute.idroute}}</p>
+ </div>
+ </div>

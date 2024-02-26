@@ -1,0 +1,121 @@
+<div class="row">
+<div class="col-xs-12">
+	<p class="text-center"><strong>Cheval</strong><span></p>
+
+</div>
+</div>
+
+<div ng-show="recherche">
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Identifiant cheval</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" ng-model="idcheval"/>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" ng-click="rechercher(idcheval)"
+						class="btn btn-default btn-sm">Rechercher</button>
+				</div>
+			</div>
+</form>
+</div>
+<div class="row" ng-show="resultat">
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<div class="col-xs-6 col-xs-offset-1">
+		<p class="form-control-static">{{cheval.nom}}&nbsp;({{cheval.id}})</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Nom</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" ng-model="cheval.nom"/>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">P&#232;re</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" ng-model="cheval.pere"/>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">M&#232;re</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" ng-model="cheval.mere"/>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Propri&#233;taire</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <input type="text" class="form-control input-sm" ng-model="cheval.proprietaire"/>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Sexe</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <select class="form-control input-sm" ng-model="cheval.sexe">
+              <option value="M">M</option>
+              <option value="F">F</option>
+              <option value="H">H</option>
+              </select>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-2 col-xs-offset-1">
+		<p class="form-control-static">Age</p>
+		</div>
+		<div class="col-xs-6">
+            <p class="input-group">
+              <select class="form-control input-sm" ng-model="cheval.age">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              </select>
+            </p>
+		</div>
+	</div>
+	<div class="form-group">
+				<div class="col-xs-offset-3 col-xs-9">
+					<button type="submit" ng-click="enregistrer(cheval)"
+						class="btn btn-default btn-sm">Enregistrer</button>
+					<button type="submit" ng-click="corriger(cheval)"
+						class="btn btn-warning btn-sm">Correction TFM</button>
+				</div>
+			</div>
+</form>
+</div>
+

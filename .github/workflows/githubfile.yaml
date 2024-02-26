@@ -1,0 +1,44 @@
+name: turfdata-admin-front
+
+on:
+  workflow_dispatch:
+    branches:
+      - master
+
+# permission can be added at job level or workflow level
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+
+env:
+  DEPLOY_REMOTE_DIR: /var/equistatsadmin/pub/site
+  DEPLOY_SOURCE_DIR: *, !.github
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - if: github.ref == 'refs/heads/master'
+        name: clean remote
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.DEPLOY_HOST_VPS_C2F69D33 }}
+          username: ${{ vars.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD_VPS_C2F69D33 }}
+          port: ${{ vars.DEPLOY_PORT }}
+          script: rm -rf ${{ env.DEPLOY_REMOTE_DIR}}/*
+
+      - if: github.ref == 'refs/heads/master'
+        name: deploy
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.DEPLOY_HOST_VPS_C2F69D33 }}
+          username: ${{ vars.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD_VPS_C2F69D33 }}
+          port: ${{ vars.DEPLOY_PORT }}
+          source: ${{ env.DEPLOY_SOURCE_DIR}}
+          target: ${{ env.DEPLOY_REMOTE_DIR}}
+          strip_components: 0

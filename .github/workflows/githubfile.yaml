@@ -13,7 +13,7 @@ permissions:
 
 env:
   DEPLOY_REMOTE_DIR: /var/equistatsadmin/pub/site
-  DEPLOY_SOURCE_DIR: *, !.github
+  DEPLOY_SOURCE_DIR: "*, !.github"
 
 jobs:
   build-test-deploy:

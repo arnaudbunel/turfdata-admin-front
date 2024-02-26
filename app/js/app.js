@@ -38,6 +38,6 @@ turfdataAdminApp.config([ "$routeProvider", function($routeProvider) {
 		controller : 'camelroutesCtrl'
 	});
 	$routeProvider.otherwise({
-		redirectTo : "/camelroutes"
+		redirectTo : "/courses"
 	});
 } ]);

@@ -3,3 +3,7 @@
 /workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/aws.xml
+/modules.xml
+/turfdata-admin-front.iml
+/vcs.xml
